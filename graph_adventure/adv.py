@@ -37,12 +37,9 @@ while len(visited) < len(roomGraph) - 1:
         visited[player.currentRoom.id].remove(last_room_direction)
 
     while len(visited[player.currentRoom.id]) == 0:
-        copyOfPath = traversalPath.copy()
-        copyOfPath.reverse()
-        for move in copyOfPath:
-          # reverse_direction = reversedPath.pop()
-          traversalPath.append(direction_reverse[move])
-          player.travel(direction_reverse[move])
+        reverse_direction = reversedPath.pop()
+        traversalPath.append(reverse_direction)
+        player.travel(reverse_direction)
 
     direction_move = visited[player.currentRoom.id].pop()
     traversalPath.append(direction_move)
